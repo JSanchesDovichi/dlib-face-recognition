@@ -15,19 +15,6 @@ pub struct LandmarkPredictor {
 cpp_class!(unsafe struct LandmarkPredictorInner as "dlib::shape_predictor");
 
 impl LandmarkPredictor {
-    #[cfg(feature = "embed-lp")]
-    pub fn default() -> Result<Self, String> {
-        use crate::embed::{check_file_or_download, ModelFile};
-
-        let filename = ModelFile::LandmarkPredictor;
-
-        let default_filepath = crate::embed::path_for_file(&filename);
-
-        check_file_or_download(&filename);
-
-        Self::open(default_filepath)
-    }
-
     /// Deserialize the landmark predictor from a file path.
     pub fn open<P: AsRef<Path>>(filename: P) -> Result<Self, String> {
         let string = path_as_cstring(filename.as_ref())?;

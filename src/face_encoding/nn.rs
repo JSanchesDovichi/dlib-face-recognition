@@ -23,19 +23,6 @@ pub struct FaceEncoderNetwork {
 cpp_class!(unsafe struct FaceEncoderNetworkInner as "face_encoding_nn");
 
 impl FaceEncoderNetwork {
-    #[cfg(feature = "embed-fe-nn")]
-    pub fn default() -> Result<Self, String> {
-        use crate::embed::{check_file_or_download, ModelFile};
-
-        let filename = ModelFile::FaceEncoderNetwork;
-
-        let default_filepath = crate::embed::path_for_file(&filename);
-
-        check_file_or_download(&filename);
-
-        Self::open(default_filepath)
-    }
-
     /// Deserialize the face encoding network from a file path.
     pub fn open<P: AsRef<Path>>(filename: P) -> Result<Self, String> {
         let string = path_as_cstring(filename.as_ref())?;
