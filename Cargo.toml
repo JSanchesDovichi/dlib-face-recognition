@@ -22,7 +22,3 @@ image = { version = "0.24", default-features = false }
 
 [build-dependencies]
 cpp_build = "0.5"
-sys-info = "0.9"
-
-[workspace]
-members = ["."]
