@@ -12,6 +12,7 @@
 
 # Editor
 **/.vscode/
+**/.idea/
 
 *.dat
 *.png

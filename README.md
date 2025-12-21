@@ -1,5 +1,7 @@
 # dlib-face-recognition
 
+# WARNING: This is a trimmed version (in progress) meant to speed up build times in Docker Containers.
+
 [![Current Crates.io Version](https://img.shields.io/crates/v/dlib-face-recognition.svg)](https://crates.io/crates/dlib-face-recognition)
 
 Inspired by [a similar python library](https://github.com/ageitgey/face_recognition), 
