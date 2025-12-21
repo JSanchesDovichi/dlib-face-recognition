@@ -17,3 +17,5 @@
 *.dat
 *.png
 .DS_Store
+
+examples/models
