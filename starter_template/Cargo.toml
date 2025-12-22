@@ -4,5 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-dlib-face-recognition = { version = "0.3.2", path = "../" }
+dlib-face-recognition = { git = "https://github.com/JSanchesDovichi/dlib-face-recognition", branch = "trimmed" }
 image = {  version = "0.24", features = ["jpeg"] }
+
+[[bin]]
+name = "dfr_starter_template"
+path = "src/main.rs"

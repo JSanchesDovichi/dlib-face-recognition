@@ -25,15 +25,17 @@ fn get_encoding(file: &str, cnn_detector: &FaceDetectorCnn, landmark_predictor: 
 }
 
 fn main() {
-    let Ok(cnn_detector) = FaceDetectorCnn::open("./starter_template/models/mmod_human_face_detector.dat") else {
+    let models_directory = "./models";
+
+    let Ok(cnn_detector) = FaceDetectorCnn::open(format!("{models_directory}/mmod_human_face_detector.dat")) else {
         panic!("Unable to load cnn face detector!");
     };
 
-    let Ok(landmark_predictor) = LandmarkPredictor::open("./starter_template/models/shape_predictor_68_face_landmarks_GTX.dat") else {
+    let Ok(landmark_predictor) = LandmarkPredictor::open(format!("{models_directory}/shape_predictor_68_face_landmarks_GTX.dat")) else {
         panic!("Unable to load landmark predictor!");
     };
 
-    let Ok(face_encoder_network) = FaceEncoderNetwork::open("./starter_template/models/dlib_face_recognition_resnet_model_v1.dat") else {
+    let Ok(face_encoder_network) = FaceEncoderNetwork::open(format!("{models_directory}/dlib_face_recognition_resnet_model_v1.dat")) else {
         panic!("Unable to load face encoder network!");
     };
 
@@ -47,7 +49,7 @@ fn main() {
     let mut dataset: Vec<Person> = vec![];
 
     for file in files {
-        let found_encoding = get_encoding(format!("./starter_template/assets/{file}").as_str(), &cnn_detector, &landmark_predictor, &face_encoder_network);
+        let found_encoding = get_encoding(format!("./assets/{file}").as_str(), &cnn_detector, &landmark_predictor, &face_encoder_network);
 
         dataset.push(
             Person {
