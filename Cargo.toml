@@ -6,7 +6,7 @@ authors = [
     "Ho Kim <great.ho.kim@gmail.com>",
     "João Pedro Sanches Dovichi <jsanchesdovichi@gmail.com>",
 ]
-edition = "2021"
+edition = "2024"
 
 description = "Unofficial Rust wrappers to the C++ library dlib, face recognition tools"
 homepage = "https://github.com/podo-os"
@@ -25,3 +25,6 @@ image = {  version = "0.24", features = ["jpeg"] }
 
 [build-dependencies]
 cpp_build = "0.5"
+
+[workspace]
+members = [".", "starter_template"]

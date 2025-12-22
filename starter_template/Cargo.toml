@@ -1,0 +1,8 @@
+[package]
+name = "starter_template"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dlib-face-recognition = { version = "0.3.2", path = "../" }
+image = "0.24"

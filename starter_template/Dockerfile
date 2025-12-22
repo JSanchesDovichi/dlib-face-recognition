@@ -1,0 +1,1 @@
+FROM lukemathwalker/cargo-chef:0.1.73-rust-1.92-slim-bookworm AS chef
