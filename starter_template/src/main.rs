@@ -26,7 +26,6 @@ fn get_encoding(file: &str, cnn_detector: &FaceDetectorCnn, landmark_predictor: 
 
 fn main() {
     let Ok(cnn_detector) = FaceDetectorCnn::open("./starter_template/models/mmod_human_face_detector.dat") else {
-    //let Ok(cnn_detector) = FaceDetectorCnn::open("../models/mmod_human_face_detector.dat") else {
         panic!("Unable to load cnn face detector!");
     };
 

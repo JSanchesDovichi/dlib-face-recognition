@@ -20,9 +20,6 @@ build = "build.rs"
 cpp = "0.5"
 image = { version = "0.24", default-features = false }
 
-[dev-dependencies]
-image = {  version = "0.24", features = ["jpeg"] }
-
 [build-dependencies]
 cpp_build = "0.5"
 
