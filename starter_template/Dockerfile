@@ -1,13 +1,12 @@
 FROM lukemathwalker/cargo-chef:0.1.73-rust-1.92-slim-trixie AS chef
 
-RUN apt-get update
-
-RUN apt-get install -y \
-  cmake \
-  libdlib-dev \
-  libopenblas-dev \
-  mold \
-  clang
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    cmake \
+       libdlib-dev \
+       libopenblas-dev \
+       mold \
+       clang \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY container_link_config.toml .cargo/config.toml
 
@@ -39,12 +38,12 @@ RUN bzip2 -d /opt/dlib_face_recognition_resnet_model_v1.dat.bz2 \
     /opt/shape_predictor_68_face_landmarks_GTX.dat.bz2
 
 # We do not need the Rust toolchain to run the binary!
-FROM debian:trixie
-RUN apt-get update
+FROM debian:trixie-slim
 
-RUN apt-get install -y \
-  libdlib19.2 \
-  libopenblas0
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libdlib19.2 \
+    libopenblas0 \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 COPY --from=builder /app/target/release/dfr_starter_template /usr/local/bin
