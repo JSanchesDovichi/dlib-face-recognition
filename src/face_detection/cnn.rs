@@ -51,7 +51,7 @@ impl FaceDetectorCnn {
         } else {
             Ok(Self {
                 inner,
-                data: std::marker::PhantomData::default(),
+                data: std::marker::PhantomData,
             })
         }
     }
